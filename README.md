@@ -36,10 +36,10 @@ streamlit run app.py
 
 ## 📷 Demo
 
-(Localhost:8501)
+
 
 ---
 
 ## 🔥 Author
 
-Your Name
+uha vasantha
