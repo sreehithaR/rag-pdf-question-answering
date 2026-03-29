@@ -1,8 +1,9 @@
 streamlit
-langchain
+langchain==0.1.16
 langchain-community
 faiss-cpu
 pypdf
 sentence-transformers
 transformers
 accelerate
+torch
