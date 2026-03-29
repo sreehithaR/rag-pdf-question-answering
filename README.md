@@ -42,4 +42,4 @@ streamlit run app.py
 
 ## 🔥 Author
 
-uha vasantha
+sreehitha
