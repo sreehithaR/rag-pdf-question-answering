@@ -3,7 +3,7 @@ from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.chains.question_answering import load_qa_chain
+from langchain.chains import RetrievalQA
 
 from transformers import pipeline
 from langchain_community.llms import HuggingFacePipeline
@@ -30,11 +30,15 @@ def ask_question(db, query):
     pipe = pipeline(
         "text2text-generation",
         model="google/flan-t5-small",
-        max_length=512
+        max_length=256
     )
 
     llm = HuggingFacePipeline(pipeline=pipe)
 
-    chain = load_qa_chain(llm, chain_type="stuff")
+   qa = RetrievalQA.from_chain_type(
+    llm=llm,
+    chain_type="stuff",
+    retriever=db.as_retriever()
+)
 
-    return chain.run(input_documents=docs, question=query)
+return qa.run(query)
