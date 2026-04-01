@@ -8,6 +8,5 @@ sentence-transformers
 pypdf
 transformers
 torch
-torchvision
 huggingface-hub
-pydantic==1.10.13
+pydantic>=2.0
